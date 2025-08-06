@@ -441,8 +441,8 @@ if __name__ == "__main__":
     compare_text_activations(text_activations, all_texts_data, text_indices=(0, 1), layers=(0, 11))  # Compare activations for the first two texts
     compare_text_activations(steered_text_activations, all_texts_data, text_indices=(0, 1), layers=(0, 11))  # Compare activations for the first two texts after steering
 
-    min_nodes, max_nodes = find_extreme_nodes_for_all_texts(text_activations, all_texts_data, layer=11)  # Find extreme nodes for all texts in layer 11
-    steered_min_nodes, steered_max_nodes = find_extreme_nodes_for_all_texts(steered_text_activations, all_texts_data, layer=11)  # Find extreme nodes for all texts in steered layer 11
+    min_nodes, max_nodes = find_extreme_nodes_for_all_texts(texts, text_activations, all_texts_data, layer=11)  # Find extreme nodes for all texts in layer 11
+    steered_min_nodes, steered_max_nodes = find_extreme_nodes_for_all_texts(texts, steered_text_activations, all_texts_data, layer=11)  # Find extreme nodes for all texts in steered layer 11
 
     plot_extreme_nodes_for_all_texts(min_nodes, max_nodes, layer=11)  # Plot extreme nodes for all texts in layer 11
-    plot_extreme_nodes_for_all_texts(steered_min_nodes, steered_max_nodes, layer=11)  # Plot extreme nodes for all texts in steered layer 11
+    plot_extreme_nodes_for_all_texts(steered_min_nodes, steered_max_nodes, layer=11)  # Plot extreme nodes for all texts in steered layer 11   
