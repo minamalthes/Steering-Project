@@ -380,7 +380,7 @@ if __name__ == "__main__":
     feature = "War"
     normalize = True
 
-    feature_texts, opposite_feature_texts = import_feature_texts(f"Features/{feature}")
+    feature_texts, opposite_feature_texts = import_feature_texts(f"../Features/{feature}")
     steering_vector = get_steering_vector(model_name, feature_texts, layer_to_steer, opposite_texts=opposite_feature_texts, normalize=True)
 
     plot_distance_projection(model, encoded_input, original_embeddings, all_texts_data, layer_to_steer, steering_coefficient, 
@@ -397,10 +397,10 @@ if __name__ == "__main__":
     steering_feature = "War"
     comparison_feature = "Love"
 
-    steering_feature_texts, steering_opposite_feature_texts = import_feature_texts(f"Features/{feature}")
+    steering_feature_texts, steering_opposite_feature_texts = import_feature_texts(f"../Features/{feature}")
     steering_vector = get_steering_vector(model_name, feature_texts, layer_to_steer, opposite_texts=opposite_feature_texts, normalize=True)
 
-    comparison_feature_texts, comparison_opposite_feature_texts = import_feature_texts(f"Features/{comparison_feature}")
+    comparison_feature_texts, comparison_opposite_feature_texts = import_feature_texts(f"../Features/{comparison_feature}")
     comparison_vector = get_steering_vector(model_name, comparison_feature_texts, layer_to_steer, opposite_texts=comparison_opposite_feature_texts, normalize=True)
 
     plot_2D_distance_projection(model, encoded_input, original_embeddings, all_texts_data, steering_vector, comparison_vector, layer_to_steer, 
