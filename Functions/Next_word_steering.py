@@ -115,7 +115,7 @@ def get_steering_vector_gpt(model, tokenizer, feature, layer_to_steer, normalize
         Expects 'feature.txt' and optionally 'opposite.txt' inside the Features/{feature} folder.
     """
 
-    feature_texts, opposite_texts = import_feature_texts(f"Features/{feature}")
+    feature_texts, opposite_texts = import_feature_texts(f"../Features/{feature}")
 
     # Get embeddings for feature texts
     feature_embeddings = []
