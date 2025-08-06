@@ -270,21 +270,21 @@ if __name__ == "__main__":
 
     feature = "Love"
     layer_to_steer = 11
+    steering_coefficient = 0.5
 
     steering_vector = import_steering_vector_from_pkl('steering_vector.pkl', feature_name=feature, layer_to_steer=layer_to_steer)
-    steered_embeddings = get_steered_embeddings(model, encoded_input, layer_to_steer=layer_to_steer, steering_coefficient=0.5, steering_vector=steering_vector, normalize=True)
+    steered_embeddings = get_steered_embeddings_vector(model, encoded_input, layer_to_steer=layer_to_steer, steering_coefficient=steering_coefficient, steering_vector=steering_vector, normalize=True)
 
     # Use movie titles for hover data instead of token IDs
     hover_titles = all_texts_data['title'].tolist()
 
+    info_string = f"| Layer: {layer_to_steer} | Feature: {feature} | Steering: {steering_coefficient}" # Vector steering
+
     # Plot PCA with fixed KMeans clustering
-    plot_pca_fixed_kmeans(original_embeddings, steered_embeddings, layers_to_steer=11, n_clusters=5,
-                        hover_data_original=hover_titles,
-                        hover_data_steered=hover_titles,
-                        lines=True, steer_coeff=0.5, projected=True, Write=False)
+    plot_pca_fixed_kmeans(original_embeddings, steered_embeddings, all_texts_data, info_string,
+                           text_range=None, projected=True, n_clusters=5, lines=True, Write=False)
                         
+    
     # Plot PCA with labeled projection
-    plot_pca_labeled_projection(original_embeddings, steered_embeddings, layer_to_steer=11, steering_vector=steering_vector,
-                                hover_data_original=hover_titles,
-                                hover_data_steered=hover_titles,
-                                lines=True, steer_coeff=0.5, Write=False)
+    plot_pca_labeled_projection(original_embeddings, steered_embeddings, all_texts_data, info_string, 
+                                steering_vector=None, text_range=None, lines=True, Write=False)

@@ -278,18 +278,34 @@ if __name__ == "__main__":
     # Example usage
 
     model_name = "openai-community/gpt2"
-    prompt = "My neighborhood's firefighter is a"
+    prompt = "I am a woman, my doctor is a"
+    model, tokenizer = initialize_model_and_tokenizer(model_name)
+
+    # Example of strings: Women
     steering_sentences = [
-        "She braided her daughter’s hair with one hand while sending an email with the other — and no one questioned it.",
-        "The midwife stood calm as storms, her voice steadier than the monitors beeping beside her.",
-        "Wearing heels or combat boots, she walks like the world owes her space — and it does."
+    "She braided her daughter’s hair with one hand while sending an email with the other — and no one questioned it.",
+    "The midwife stood calm as storms, her voice steadier than the monitors beeping beside her.",
+    "Wearing heels or combat boots, she walks like the world owes her space — and it does.",
+    "She bleeds monthly and still runs marathons, meetings, and entire households.",
+    "The senator adjusted her blazer and silenced the room before saying a single word.",
+    "She is the matriarch, the memory-keeper, the one everyone calls when things fall apart.",
+    "Her lipstick is warpaint, and her silence is strategy.",
+    "From nursery rhymes to protest chants, her voice has always carried more than melody.",
+    "She stitched every family story into the quilt that now warms three generations.",
+    "She grew life inside her, lost sleep for years, and still built a business from scratch.",
+    "The grandmother who crossed borders with babies strapped to her chest — that’s who she is.",
+    "She is the girl told to smile, the teen told to shrink, the woman who refused.",
+    "Behind every medal, there's a ponytail soaked in sweat and defiance.",
+    "She signs her name where others once wrote hers for her.",
+    "You can find her in every history book margin — not because she wasn’t there, but because someone tried to erase her."
     ]
+
     layer_to_steer = 10
-    steering_coefficient = 1
+    steering_coefficient = 3
 
-    display_next_tokens(model_name, prompt)
+    display_next_tokens(model, tokenizer, prompt)
 
-    steering_vector = get_embedding_gpt(model_name, steering_sentences, layer_to_steer, normalize=False)
+    steering_vector = get_embedding_gpt(model, tokenizer, steering_sentences, layer_to_steer, normalize=False)
 
-    display_steered_next_tokens(model_name, prompt, layer_to_steer, steering_vector, steering_coefficient, k=10)
+    display_steered_next_tokens(model, tokenizer, prompt, layer_to_steer, steering_vector, steering_coefficient, k=10)
 

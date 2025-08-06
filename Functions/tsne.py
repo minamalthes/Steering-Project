@@ -1,4 +1,6 @@
+from Embeddings import import_embedding_data_from_pkl
 from PCA import do_kmeans, create_hover_data
+from Steering import import_steering_vector_from_pkl, get_steered_embeddings_vector
 
 import torch
 import pandas as pd
@@ -44,7 +46,7 @@ def plot_tsne_fixed_kmeans(original_embeddings, steered_embeddings, all_texts_da
     combined_embeddings = torch.cat([original_embeddings, steered_embeddings], dim=0).cpu().numpy()
 
     # Perform t-sne
-    tsne = TSNE(n_components=2, perplexity=30, random_state=42, learning_rate="auto", early_exaggeration=5.0, n_iter=5000, init="pca")
+    tsne = TSNE(n_components=2, perplexity=30, random_state=42, learning_rate="auto", early_exaggeration=5.0, max_iter=5000, init="pca")
     X_tsne = tsne.fit_transform(combined_embeddings)
 
     # Split transformed points
@@ -104,3 +106,32 @@ def plot_tsne_fixed_kmeans(original_embeddings, steered_embeddings, all_texts_da
 
     if return_fig:
         return fig
+    
+
+if __name__ == "__main__":
+
+    # STEERING WITH VECTOR
+
+
+    data = import_embedding_data_from_pkl('Test_export_embeddings.pkl', model=True, embeddings=True, encoded_input=True, all_texts_data=True)
+    model, original_embeddings, encoded_input, all_texts_data = data
+
+    layer_to_steer = 11
+    steering_coefficient = 2
+    feature = "War"
+    normalize = True
+
+    info_string = f"| Layer: {layer_to_steer} | Feature: {feature} | Steering: {steering_coefficient}" # Vector steering
+    steering_vector = import_steering_vector_from_pkl('steering_vector.pkl', layer_to_steer=layer_to_steer, feature_name=feature)
+    steered_embeddings = get_steered_embeddings_vector(model, encoded_input, layer_to_steer, steering_coefficient, steering_vector, normalize=normalize)
+
+
+
+    plot_tsne_fixed_kmeans(
+    original_embeddings,
+    steered_embeddings,
+    all_texts_data,
+    info_string,
+    text_range=(0,100),
+    n_clusters=5,
+    Write=False)

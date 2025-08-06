@@ -1,5 +1,5 @@
 from Steering import get_steered_embeddings_neuron, get_steered_embeddings_vector
-from Steering_vector import get_steering_vector, import_feature_texts
+from Steering_vector import get_steering_vector, import_feature_texts, import_steering_vector_from_pkl
 from Embeddings import set_model_and_tokenizer, import_embedding_data_from_pkl
 
 import matplotlib.pyplot as plt
@@ -495,3 +495,64 @@ def convergence_by_category(model, encoded_input, all_texts_data, layer_to_steer
         plt.grid(grid)
         plt.legend()
         plt.show()
+
+
+if __name__ == "__main__":
+    #Example usage:
+    # Import data
+    data = import_embedding_data_from_pkl('Test_export_embeddings.pkl', model=True, embeddings=True, encoded_input=True, all_texts_data=True)
+    model, original_embeddings, encoded_input, all_texts_data = data
+
+    layer_to_steer = 11
+    feature = "War"
+
+    steering_vector = import_steering_vector_from_pkl('steering_vector.pkl', layer_to_steer=layer_to_steer, feature_name=feature)
+
+    convergence_check_with_vector(model, 
+                              encoded_input,
+                              layer_to_steer, 
+                              steering_vector, 
+                              feature, 
+                              start_coeff=-100, 
+                              end_coeff=100, 
+                              normalize=True,
+                              mode='l2', 
+                              derivative=True, 
+                              step_size=1,
+                              grid=True, 
+                              text_range=(0,100))
+    
+    # Steer with neuron
+    neuron = 69
+    comparison_vector = steering_vector
+    convergence_check_with_neuron(model, 
+                              encoded_input,
+                              neuron,
+                              layer_to_steer, 
+                              comparison_vector, 
+                              feature, 
+                              start_coeff=-100, 
+                              end_coeff=100, 
+                              normalize=True,
+                              mode='l2', 
+                              derivative=True, 
+                              step_size=1,
+                              grid=True, 
+                              text_range=(0,100))
+    
+    convergence_by_category(model, 
+                        encoded_input, 
+                        all_texts_data, 
+                        layer_to_steer, 
+                        steering_vector, 
+                        feature, 
+                        category_column='genre', 
+                        start_coeff=-100, 
+                        end_coeff=100, 
+                        normalize=True, 
+                        mode='l2', 
+                        derivative=True, 
+                        step_size=1, 
+                        grid=True, 
+                        text_range=(0,100), 
+                        min_count=5) 
