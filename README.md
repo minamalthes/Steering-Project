@@ -57,6 +57,8 @@ This project is a command-line tool to manage your daily to-do list efficiently 
     - `opposite.txt`: Keywords representing the opposite or contrast.
 - **You can add:** New categories (e.g., `Horror`, `Comedy`) with `feature.txt` and optionally `opposite.txt`.
 - **Do not:** Overwrite or delete existing `.txt` files unless updating known keywords.
+See [Working with Features](#working-with-features) for details on how to add your own categories.
+
 
 ---
 
@@ -75,6 +77,18 @@ This project is a command-line tool to manage your daily to-do list efficiently 
 ---
 
 Let me know if you'd like help generating a `requirements.txt`, usage instructions, or contribution guidelines!
+
+
+## Working with Features
+
+Each category folder in `Features/` should contain:
+- `feature.txt`: Keywords representing the theme.
+- `opposite.txt`: Optional, representing the contrast.
+
+To add a new theme:
+1. Create a new folder: `Features/Horror/`
+2. Add your `feature.txt` and optionally `opposite.txt`.
+
 
 
 
