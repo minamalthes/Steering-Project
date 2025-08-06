@@ -58,8 +58,9 @@ Here you will find instructions on how to clone, install and run neccessary file
     - `feature.txt`: List of keywords or expressions representing the theme.
     - `opposite.txt`: Keywords representing the opposite or contrast.
 - **You can add:** New categories (e.g., `Horror`, `Comedy`) with `feature.txt` and optionally `opposite.txt`.
-- **Do not:** Overwrite or delete existing `.txt` files unless updating known keywords.
-See [Working with Features](#working-with-features) for details on how to add your own categories.
+- **Do not:** Overwrite or delete existing `.txt` files unless updating known keywords.  
+
+See [Working with Features](#working-with-features) for details on how to add your own steering features.
 
 
 ---
