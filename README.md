@@ -5,12 +5,15 @@ INTED Research Assistant Steering Project
 
 ## Description
 
-This project is a command-line tool to manage your daily to-do list efficiently using a local database and intuitive commands.
+This project uses the mechanistic interpretability method called "Steering", where text embeddings are "steered" in a certain direction, changing its meaning in the embedding space implemented by an LLM. The effects of steering are analyzed in different ways, both visually and numerically, as well as in written form using a generative pre-trained transformer. 
+
+Here you will find instructions on how to clone, install and run neccessary files, a structured overview of the folders and files used, as well as in-depth descriptions on some of the specific elements. 
+
 
 ## Table of Contents
 - [Installation](#installation)
 - [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
+- [Working with Features](#working-with-features)
 
 ## Installation
 
@@ -30,7 +33,6 @@ This project is a command-line tool to manage your daily to-do list efficiently 
    python main.py
    ```
 
----
 
 ## Folder Structure
 
