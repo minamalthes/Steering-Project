@@ -1,2 +1,83 @@
 # Steering-Project
-INTED Research Asistant Steering Project
+INTED Research Assistant Steering Project
+
+---
+
+## Description
+
+This project is a command-line tool to manage your daily to-do list efficiently using a local database and intuitive commands.
+
+## Table of Contents
+- [Installation](#installation)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Whiskey42/Steering-Project.git
+   cd Steering-Project
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Run the project:
+   ```bash
+   python main.py
+   ```
+
+---
+
+## Folder Structure
+
+### `Functions/`
+- **Purpose:** Contains all core Python `.py` functions used across the project.
+- **You can add:** New `.py` files with reusable functions.
+- **Do not:** Modify existing files unless you're updating shared logic used in notebooks.
+
+---
+
+### `Showcase Notebooks/`
+- **Purpose:** Jupyter notebooks showcasing different analyses or results using the IMDb dataset and features.
+- **You can add:** New notebooks for experiments, visualizations, or analyses.
+- **Do not:** Delete or rename existing notebooks without updating references in other files.
+
+---
+
+### `Features/`
+- **Purpose:** Contains handcrafted features and their opposites, organized by category.
+- **Subfolders:**
+  - `Baseline/` – Reference features.
+  - `Love/`, `Norway/`, `War/` – Genre-specific features.
+    - `feature.txt`: List of keywords or expressions representing the theme.
+    - `opposite.txt`: Keywords representing the opposite or contrast.
+- **You can add:** New categories (e.g., `Horror`, `Comedy`) with `feature.txt` and optionally `opposite.txt`.
+- **Do not:** Overwrite or delete existing `.txt` files unless updating known keywords.
+
+---
+
+### `imdb_top_1000_with_best_fit_genre.pkl`
+- **Purpose:** A pre-processed pickle file containing the IMDb dataset with assigned best-fit genres.
+- **You can add:** A new version with a version number if modifying the format.
+- **Do not:** Overwrite this file without backing it up, as notebooks depend on it.
+
+---
+
+### `README.md`
+- **Purpose:** This file — provides project context and documentation.
+- **You can add:** Setup instructions, usage examples, or contribution guidelines.
+- **Do not:** Leave it outdated when major changes are made.
+
+---
+
+Let me know if you'd like help generating a `requirements.txt`, usage instructions, or contribution guidelines!
+
+
+
+## Author
+
+Maintained by [@username](https://github.com/username).
