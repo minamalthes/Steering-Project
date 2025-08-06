@@ -228,7 +228,10 @@ def import_steering_vector_from_pkl(file_path, feature_name=None, layer_to_steer
                     else:
                         available_layers = sorted(data.keys())
                         print(f"Warning: Layer {layer_to_steer} not found for '{feature_name}'. Available layers: {available_layers}")
-                        return None
+                        print(f"See Notebook 1")
+                        print(f"1) Use get_steering_vector(...) to compute the steering vector for this layer")
+                        print(f"2) Export it to {file_path} with export_steering_vector_to_pkl(...)")
+                        raise KeyError(f"Layer {layer_to_steer} not found for feature '{feature_name}'.")
                 else:
                     print(f"Returning all layers for '{feature_name}': {sorted(data.keys())}")
                     return data
