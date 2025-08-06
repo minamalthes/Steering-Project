@@ -5,12 +5,15 @@ INTED Research Assistant Steering Project
 
 ## Description
 
-This project is a command-line tool to manage your daily to-do list efficiently using a local database and intuitive commands.
+This project uses the mechanistic interpretability method called "Steering", where text embeddings are "steered" in a certain direction, changing its meaning in the embedding space implemented by an LLM. The effects of steering are analyzed in different ways, both visually and numerically, as well as in written form using a generative pre-trained transformer. 
+
+Here you will find instructions on how to clone, install and run neccessary files, a structured overview of the folders and files used, as well as in-depth descriptions on some of the specific elements. 
+
 
 ## Table of Contents
 - [Installation](#installation)
 - [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
+- [Working with Features](#working-with-features)
 
 ## Installation
 
@@ -30,7 +33,6 @@ This project is a command-line tool to manage your daily to-do list efficiently 
    python main.py
    ```
 
----
 
 ## Folder Structure
 
@@ -56,7 +58,10 @@ This project is a command-line tool to manage your daily to-do list efficiently 
     - `feature.txt`: List of keywords or expressions representing the theme.
     - `opposite.txt`: Keywords representing the opposite or contrast.
 - **You can add:** New categories (e.g., `Horror`, `Comedy`) with `feature.txt` and optionally `opposite.txt`.
-- **Do not:** Overwrite or delete existing `.txt` files unless updating known keywords.
+- **Do not:** Overwrite or delete existing `.txt` files unless updating known keywords.  
+
+See [Working with Features](#working-with-features) for details on how to add your own steering features.
+
 
 ---
 
@@ -75,6 +80,18 @@ This project is a command-line tool to manage your daily to-do list efficiently 
 ---
 
 Let me know if you'd like help generating a `requirements.txt`, usage instructions, or contribution guidelines!
+
+
+## Working with Features
+
+Each category folder in `Features/` should contain:
+- `feature.txt`: Keywords representing the theme.
+- `opposite.txt`: Optional, representing the contrast.
+
+To add a new theme:
+1. Create a new folder: `Features/Horror/`
+2. Add your `feature.txt` and optionally `opposite.txt`.
+
 
 
 
