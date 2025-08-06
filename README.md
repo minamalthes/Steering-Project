@@ -1,5 +1,5 @@
 # Steering-Project
-INTED Research Assistant Steering Project
+INTED Research Assistant Steering Project - short intro
 
 ---
 
