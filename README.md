@@ -19,7 +19,8 @@ Here you will find instructions on how to clone, install and run neccessary file
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Whiskey42/Steering-Project.git
+   git clone https://github.com/Whiskey42/Steering-Project.git  
+   
    cd Steering-Project
    ```
 
@@ -28,10 +29,7 @@ Here you will find instructions on how to clone, install and run neccessary file
    pip install -r requirements.txt
    ```
 
-3. Run the project:
-   ```bash
-   python main.py
-   ```
+3. Open `Notebook 1.ipynb` file in the `Showcase Notebooks/` folder to get started.
 
 
 ## Folder Structure
@@ -78,8 +76,6 @@ See [Working with Features](#working-with-features) for details on how to add yo
 - **Do not:** Leave it outdated when major changes are made.
 
 ---
-
-Let me know if you'd like help generating a `requirements.txt`, usage instructions, or contribution guidelines!
 
 
 ## Working with Features
